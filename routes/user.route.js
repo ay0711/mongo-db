@@ -62,9 +62,9 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await userModel.findOne({ email });
-        // if (!email || !password) {
-        //     return res.status(400).send('Email and password are required');
-        // }
+        if (!email || !password) {
+            return res.status(400).send('Email and password are required');
+        }
         if (!user) {
             return res.status(400).send('User not found; please register!');
         }
