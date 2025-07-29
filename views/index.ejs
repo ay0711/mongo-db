@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+    <div class="alert alert-primary text-center mb-4 animate__animated animate__fadeInDown" role="alert">
+        <strong>Welcome to MyDashboard!</strong> Monitor your stats and recent activity at a glance.
+    </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#">MyDashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" href="#">Overview</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Analytics</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+            </ul>
+            <button class="btn btn-outline-light ms-3">Logout</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid bg-light min-vh-100 py-4 px-4 animate__animated animate__fadeIn">
+    <div class="row mb-4">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow h-100 border-0 animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="card-body">
+                    <h6 class="card-title text-muted">Users</h6>
+                    <h2 class="fw-bold text-primary">1,245</h2>
+                    <div class="progress" style="height: 5px;">
+                        <div class="progress-bar bg-primary" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="card-footer bg-white border-0 text-end">
+                    <small class="text-success">+5% this week</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow h-100 border-0 animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="card-body">
+                    <h6 class="card-title text-muted">Revenue</h6>
+                    <h2 class="fw-bold text-success">$8,430</h2>
+                    <div class="progress" style="height: 5px;">
+                        <div class="progress-bar bg-success" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="card-footer bg-white border-0 text-end">
+                    <small class="text-danger">-2% this week</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow h-100 border-0 animate__animated animate__fadeInUp animate__delay-3s">
+                <div class="card-body">
+                    <h6 class="card-title text-muted">Orders</h6>
+                    <h2 class="fw-bold text-warning">320</h2>
+                    <div class="progress" style="height: 5px;">
+                        <div class="progress-bar bg-warning" style="width: 50%"></div>
+                    </div>
+                </div>
+                <div class="card-footer bg-white border-0 text-end">
+                    <small class="text-success">+12% this week</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card shadow h-100 border-0 animate__animated animate__fadeInUp animate__delay-4s">
+                <div class="card-body">
+                    <h6 class="card-title text-muted">Feedback</h6>
+                    <h2 class="fw-bold text-info">98%</h2>
+                    <div class="progress" style="height: 5px;">
+                        <div class="progress-bar bg-info" style="width: 98%"></div>
+                    </div>
+                </div>
+                <div class="card-footer bg-white border-0 text-end">
+                    <small class="text-success">+1% this week</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="card shadow border-0 animate__animated animate__fadeInLeft">
+                <div class="card-header bg-white border-0">
+                    <h5 class="mb-0 fw-bold">Sales Overview</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="salesChart" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card shadow border-0 animate__animated animate__fadeInRight">
+                <div class="card-header bg-white border-0">
+                    <h5 class="mb-0 fw-bold">Recent Activity</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">New user <span class="badge bg-primary float-end">+1</span></li>
+                    <li class="list-group-item">Order #1234 completed <span class="badge bg-success float-end">Success</span></li>
+                    <li class="list-group-item">Server backup <span class="badge bg-warning float-end">Pending</span></li>
+                    <li class="list-group-item">Feedback received <span class="badge bg-info float-end">New</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-primary text-white text-center py-3 mt-5 animate__animated animate__fadeInUp">
+    <div class="container">
+        <small>&copy; 2024 MyDashboard. All rights reserved.</small>
+    </div>
+</footer>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+            datasets: [{
+                label: 'Sales',
+                data: [1200, 1900, 3000, 2500, 3200, 2800, 3500],
+                borderColor: '#0d6efd',
+                backgroundColor: 'rgba(13,110,253,0.1)',
+                tension: 0.4,
+                fill: true,
+                pointRadius: 5,
+                pointBackgroundColor: '#0d6efd'
+            }]
+        },
+        options: {
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+</script>
+<style>
+    body {
+        background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+        min-height: 100vh;
+    }
+    .card {
+        border-radius: 1rem;
+        transition: transform 0.2s;
+    }
+    .card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .navbar-brand {
+        letter-spacing: 2px;
+        font-size: 1.5rem;
+    }
+    footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</html>
