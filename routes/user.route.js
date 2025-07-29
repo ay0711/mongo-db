@@ -58,31 +58,27 @@ router.post('/signup', async (req, res) => {
 
 
 
-router.post('/login', (req, res) => {
-    const userData = {
-        email: req.body.email,
-        password: req.body.password
+router.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await userModel.findOne({ email });
+        // if (!email || !password) {
+        //     return res.status(400).send('Email and password are required');
+        // }
+        if (!user) {
+            return res.status(400).send('User not found; please register!');
+        }
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (isMatch) {
+            res.redirect('ejs');
+        } else {
+            console.log({passwordInput: password, foundPassword: user.password});
+            res.status(401).send('Incorrect password');
+        }
+    } catch (err) {
+        console.error('Error logging in:', err);
+        res.status(500).send('Internal server error');
     }
-    console.log(userData);
-    userModel.findOne({ email: userData.email })
-        .then(user => {
-            console.log(user);
-            if (!user || user == null) {
-                return res.status(400).send('User not found; please register!');
-            }
-            else {
-                console.log('user found:', user);
-                if(user.password==userData.password){
-                    res.redirect('ejs')
-                    // res.status(200).send(`welcome ${userData.email}`);
-                }
-                else{
-                    console.log({passwordInput:userData.password, Foundassword:user.password});
-                    res.status(401).send('Incorrect password')
-                    // res.render('/register')
-                }
-            }
-        })
-    });
+});
 
 module.exports = router;
